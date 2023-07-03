@@ -1,4 +1,5 @@
 class MembersOnlyArticlesController < ApplicationController
+   before_action :require_login, only: [:index, :show]
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
